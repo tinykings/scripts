@@ -6,6 +6,10 @@ case "$1" in
     echo "🟢 Sunshine virtual monitor on"
     hyprctl keyword monitor sunshine,1920x1200@60,auto,1.2
     hyprctl keyword monitor HDMI-A-1,disable
+    # fix lockscreen crash
+    sleep 2
+    hyprctl --instance 0 'keyword misc:allow_session_lock_restore 1'
+    hyprctl --instance 0 'dispatch exec hyprlock'
     ;;
 
   off|OFF)
@@ -14,7 +18,6 @@ case "$1" in
     hyprctl keyword monitor sunshine,disable
     hyprctl reload
     sleep 2
-    # fix lockscreen crash
     hyprctl --instance 0 'keyword misc:allow_session_lock_restore 1'
     hyprctl --instance 0 'dispatch exec hyprlock'
     sleep 5

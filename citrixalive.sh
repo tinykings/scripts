@@ -6,8 +6,8 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PID_FILE="${SCRIPT_DIR}/.citrixalive.pid"
 LOG_FILE="${SCRIPT_DIR}/citrixalive.log"
-INTERVAL=300  # 5 minutes in seconds
-MOUSE_MOVE_DISTANCE=1
+INTERVAL=200  # seconds
+MOUSE_MOVE_DISTANCE=200
 
 # Colors for output
 RED='\033[0;31m'
